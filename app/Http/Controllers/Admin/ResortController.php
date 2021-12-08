@@ -62,6 +62,6 @@ class ResortController extends Controller
     }
 
     public function delete(){
-        
+        //nguyen dc
     }
 }
