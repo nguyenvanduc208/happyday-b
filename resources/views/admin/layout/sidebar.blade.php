@@ -51,14 +51,14 @@
                                     <li><a href="index3.html">SEO dashboard</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="{{ strpos( request()->path() , 'resort' ) ? 'active' : '' }}">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>
                                     Resort
                                 </span>
                             </a>
                                 <ul class="collapse">
-                                    <li><a href="{{ route('resort-add') }}">Thêm mới</a></li>
-                                    <li><a href="{{ route('resort-list') }}">Danh sách</a></li>
+                                    <li class="{{ strpos( request()->path() , 'resort/add' ) ? 'active' : '' }}"><a href  ="{{ route('resort-form-create') }}">Thêm mới</a></li>
+                                    <li class="{{ strpos( request()->path() , 'resort' ) ? strpos( request()->path() , 'resort/add' ) == false ? 'active' : '' : '' }}"><a href="{{ route('resort-list') }}">Danh sách</a></li>
                                 </ul>
                             </li>
 
