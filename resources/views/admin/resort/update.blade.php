@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 @section('title')
-    Thêm mới
+    Sửa resort
 @endsection
 @section('content')
 <div class="main-content-inner">
@@ -15,7 +15,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Tên resort</label>
-                                <input class="form-control" type="text" value="{{ old('name') }}" name="name">
+                                <input class="form-control" value='{{ old('name', $resort->name) }}' type="text" name="name">
                                 @error('name')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -24,7 +24,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Giá</label>
-                                <input class="form-control" value="{{ old('price') }}" type="text" name="price">
+                                <input class="form-control" value='{{ old('price', $resort->price) }}' type="text" name="price">
                                 @error('price')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -33,8 +33,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Giới hạn người ở</label>
-                                <input class="form-control" value="{{ old('limit') }}" type="text" name="limit">
-                                @error('limit')
+                                <input class="form-control" value='{{ old('limit', $resort->limit) }}' type="text" name="limit">
+                                @error('price')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Size</label>
-                                <input class="form-control" value="{{ old('size') }}" type="text" name="size">
+                                <input class="form-control" value='{{ old('size', $resort->size) }}' type="text" name="size">
                                 @error('size')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Số lượng phòng ngủ</label>
-                                <input class="form-control"  value="{{ old('bed') }}" type="text" name="bed">
+                                <input class="form-control" value='{{ old('bed', $resort->bed) }}' type="text" name="bed">
                                 @error('bed')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
@@ -62,7 +62,7 @@
                                 <label for="">Danh mục</label>
                                 <select name="category_id" id="" class="form-control">
                                     @foreach ($category as $item)
-                                        <option {{ $item->id == old('category_id') ? ' selected' : ''}} value="{{$item->id}}">{{$item->name}}</option>
+                                        <option {{ $item->id == old('category_id', $resort->category_id) ? ' selected' : '' }} value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('category_id')
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 <label for="">Chi tiết resort</label>
                                 <textarea name="desc" id="" cols="30" rows="10" class="form-control">
-                                    {{ old('desc') }}
+                                    {{ old('desc', $resort->desc) }}
                                 </textarea>
                                 @error('desc')
                                 <div class="alert alert-danger" role="alert">

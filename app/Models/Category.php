@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    //chỉ định tên table trong trường hợp không đặt tên theo Eloquent
     protected $table = 'category';
+
     protected $fillable  = [
         'name'
     ];
-    public function Products()
-    {
-        return $this->hasMany(Product::class, 'category_id', 'id');
-    }
+
+    public $timestamps = false;
+
 }

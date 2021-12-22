@@ -5,25 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resort extends Model
+class Food extends Model
 {
+
     use HasFactory;
-    protected $table = "resort";
-    public function image()
-    {
-        return $this->belongsTo(Image::class, 'image_id', 'id');
-    }
+    protected $table = 'food';
     protected $fillable = [
-        'name',
+        'image',
+        'title',
         'price',
-        'limit',
-        'size',
-        'bed',
         'category_id',
-        'desc'
     ];
 
-    public function Category(){
+    public $timestamps = false;
+
+    public function category()
+    {
         return $this->belongsTo(Category::class, 'category_id');
     }
 }

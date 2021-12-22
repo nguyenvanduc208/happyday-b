@@ -16,7 +16,7 @@ class CreateResortTable extends Migration
         Schema::create('resort', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->float('price');
+            $table->integer('price');
             $table->integer('limit');
             $table->float('size');
             $table->string('view');

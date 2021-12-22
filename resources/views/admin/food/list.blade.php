@@ -8,39 +8,33 @@
             <div class="col-lg-12 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="header-title">List Resort</h4>
+                        <h4 class="header-title">List food</h4>
                         <div class="single-table">
                             <div class="table-responsive">
                                 <table class="table text-center">
                                     <thead class="text-uppercase bg-primary">
                                         <tr class="text-white">
                                             <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">price</th>
-                                            <th scope="col">Limit</th>
-                                            <th scope="col">Size</th>
-                                            <th scope="col">Bed</th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Price</th>
                                             <th scope="col">Category</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($resorts as $resort)
+                                        @foreach ($data as $food)
                                             <tr>
-                                                <th scope="row">{{ $resort->id }}</th>
-                                                <td>{{ $resort->name }}</td>
-                                                <td>{{ $resort->price }}</td>
-                                                <td>{{ $resort->limit }}</td>
-                                                <td>{{ $resort->size }}</td>
-                                                <td>{{ $resort->bed }}</td>
-                                                <td>{{ $resort->category->name }}</td>
-                                                <td><img src="{{ asset('storage/' . $resort->image->path) }}" width="70px"
-                                                        height="80px"></td>
-                                                <td><a href="{{ route('resort-edit', ['id' => $resort->id]) }}"
+                                                <th scope="row">{{ $food->id }}</th>
+                                                <td>{{ $food->title }}</td>
+                                                <td>{{ $food->price }}</td>
+                                                <td>{{ $food->category->name }}</td>
+                                                <td><img src="{{ asset('storage/' . $food->image) }}" width="70px"
+                                                    height="80px"></td>
+                                                <td><a href="{{ route('food-edit', ['id' => $food->id]) }}"
                                                         class="btn btn-primary">Sửa</a>
-                                                    <a href="{{ route('resort-remove', ['id' => $resort->id]) }}"
-                                                        onclick="return confirm('Bạn có chắc muốn xóa resort này')"
+                                                    <a href="{{ route('food-remove', ['id' => $food->id]) }}"
+                                                        onclick="return confirm('Bạn có chắc muốn xóa food này')"
                                                         class="btn btn-danger delete">Xóa</a>
                                                 </td>
                                             </tr>

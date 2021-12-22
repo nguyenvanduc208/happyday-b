@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 @section('title')
-    Thêm mới
+    Thêm mới thực đơn
 @endsection
 @section('content')
 <div class="main-content-inner">
@@ -14,9 +14,9 @@
                         <div class="card">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="">Tên resort</label>
-                                <input class="form-control" type="text" value="{{ old('name') }}" name="name">
-                                @error('name')
+                                <label for="">Tên thực đơn</label>
+                                <input class="form-control" type="text" value="{{ old('title') }}" name="title">
+                                @error('title')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
@@ -32,37 +32,10 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="">Giới hạn người ở</label>
-                                <input class="form-control" value="{{ old('limit') }}" type="text" name="limit">
-                                @error('limit')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Size</label>
-                                <input class="form-control" value="{{ old('size') }}" type="text" name="size">
-                                @error('size')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Số lượng phòng ngủ</label>
-                                <input class="form-control"  value="{{ old('bed') }}" type="text" name="bed">
-                                @error('bed')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
                                 <label for="">Danh mục</label>
                                 <select name="category_id" id="" class="form-control">
                                     @foreach ($category as $item)
-                                        <option {{ $item->id == old('category_id') ? ' selected' : ''}} value="{{$item->id}}">{{$item->name}}</option>
+                                        <option {{ $item->id == old('category_id' , $item->id == 1) ? ' selected' : ''}} value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                                 @error('category_id')
@@ -80,17 +53,6 @@
                                     <label class="custom-file-label" for="inputGroupFile01">Hình ảnh</label>
                                 </div>
                                 @error('upFile')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="">Chi tiết resort</label>
-                                <textarea name="desc" id="" cols="30" rows="10" class="form-control">
-                                    {{ old('desc') }}
-                                </textarea>
-                                @error('desc')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>
